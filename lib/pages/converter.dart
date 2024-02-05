@@ -17,10 +17,23 @@ class _ConverterState extends State<Converter> {
 
   String decimalToBinary(int n) {
     String binary = '';
-    while (n > 0) {
+    int spaces = 0;
+    do {
+      // Every 5 digits, add a space, but the number of digits must always be a multiple of 5
+      if (binary.isNotEmpty && (binary.length - spaces) % 4 == 0) {
+        binary = ' $binary';
+        spaces++;
+      }
       binary = (n % 2).toString() + binary;
       n = n ~/ 2;
+    } while (n > 0);
+
+    // Pad with leading zeros to make the length a multiple of 5
+    int remainder = (binary.length-spaces) % 4;
+    if (remainder > 0) {
+      binary = '0' * (4 - remainder) + binary;
     }
+
     return binary;
   }
 
