@@ -137,3 +137,4 @@ app.*.symbols
 !/dev/ci/**/Gemfile.lock
 !.vscode/settings.json
 /lib/firebase_options.dart
+/android/app/google-services.json
