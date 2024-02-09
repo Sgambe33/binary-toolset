@@ -1,4 +1,5 @@
 # Binary Toolset
+[![Flutter CI](https://github.com/Sgambe33/binary-toolset/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/Sgambe33/binary-toolset/actions/workflows/main.yml)
 
 A Flutter app that provides a collection of binary tools for developers.
 
@@ -36,6 +37,7 @@ flutter build apk
 - [ ] Calculator
 - [ ] Signed numbers
 - [ ] IEEE 754
+- [ ] Changelog page
 
 ## Roadmap
 
