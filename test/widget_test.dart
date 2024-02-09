@@ -1,30 +1,37 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
+import 'package:binarytoolset/converters.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:binarytoolset/main.dart';
-
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
-
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  test('Convert Decimal to Binary', () {
+    expect(Converters.decimalToBinary(10), '1010');
+    expect(Converters.decimalToBinary(1011), '0011 1111 0011');
   });
+
+  test('Convert Decimal to Octal', () {
+    expect(Converters.decimalToOctal(10), '12');
+    expect(Converters.decimalToOctal(1011), '1763');
+  });
+
+  test('Convert Decimal to Hex', () {
+    expect(Converters.decimalToHex(10), 'A');
+    expect(Converters.decimalToHex(1011), '3F3');
+  });
+
+  test('Convert Binary to Decimal', () {
+    expect(Converters.binaryToDecimal('1010'), 10);
+    expect(Converters.binaryToDecimal('001111110011'), 1011);
+  });
+
+  test('Convert Octal to Decimal', () {
+    expect(Converters.octalToDecimal('12'), 10);
+    expect(Converters.octalToDecimal('1763'), 1011);
+  });
+
+  test('Convert Hex to Decimal', () {
+    expect(Converters.hexToDecimal('A'), 10);
+    expect(Converters.hexToDecimal('a'), 10);
+    expect(Converters.hexToDecimal('3F3'), 1011);
+  });
+
+
 }
